@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import alanBtn from "@alan-ai/alan-sdk-web";
-import axios from 'axios';
-import BookCard from './BookCard.jsx';
+import AppSearch from "./SearchBook";
 
 const App = () => {
     useEffect(() => {
@@ -18,8 +17,9 @@ const App = () => {
 
     return(
       <div>
-          <h1 className="appTitle">Voice Assistant Application</h1>
-          <h2 className="appTitle">This App allow you to search a Books and generate Harvard references</h2>
+          <div className='headerCard'>
+              <HeaderCard/>
+          </div>
           <div className='cards'>
             <Card
                 title='Search by Category'
@@ -36,14 +36,30 @@ const App = () => {
                   text=''/>
 
           </div>
+          <div className='cardBook'>
+            <AppSearch/>
+          </div>
       </div>
     );
 }
 
-class Card extends  React.Component {
+class HeaderCard extends React.Component {
     render() {
         return (
-            <div className="card">
+            <div className='cardHeader'>
+                <div className="card-body">
+                    <h1 className="appTitle">Voice Assistant Application</h1>
+                    <h2 className="appTitle">This App allow you to search a Books and generate Harvard references</h2>
+                </div>
+            </div>
+        );
+    }
+}
+
+class Card extends React.Component {
+    render() {
+        return (
+            <div className="card1">
                 <div className="card-body">
                     <h2>{this.props.title}</h2>
                     <p>{this.props.text}</p>

@@ -17,16 +17,16 @@ const BookCard = ({
     const toggle = () => setModal(!modal);
 
     return(
-        <Card style={{ width: '233px' }} className='m-auto '>
+        <Card style={{ width: '233px' }} className='cardMain '>
             <CardImg
                 top
-                style={{ width: '100%', height: '233px' }}
+                style={{ width: '80%', height: '230px' }}
                 src={thumbnail}
                 alt={title}
             />
             <CardBody>
                 <CardTitle className='card-title'>{title}</CardTitle>
-                <Button onClick={toggle}>More info</Button>
+                <Button className='btnInfo' onClick={toggle}>More info</Button>
             </CardBody>
             <Modal isOpen={modal} toggle={toggle}>
                 <div className='modal-header d-flex justify-content-center'>
@@ -43,7 +43,7 @@ const BookCard = ({
                 <div className='modal-body'>
                     <div className='d-flex justify-content-between ml-3'>
                         <img src={thumbnail} alt={title} style={{ height: '233px' }} />
-                        <div>
+                        <div className='modalSection'>
                             <p>Page Count: {pageCount}</p>
                             <p>Language : {language}</p>
                             <p>Authors : {authors}</p>
@@ -54,29 +54,28 @@ const BookCard = ({
                 </div>
                 <div className='modal-footer'>
                     <div className='left-silde'>
-                        <a
+                        <Button
                             href={previewLink}
-                            className='btn-link'
+                            className='btnLink'
                             color='default'
                             type='button'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
                             Preview Link
-                        </a>
+                        </Button>
                     </div>
-                    <div className='divider'></div>
+
                     <div className='right-side'>
-                        <a
+                        <Button
                             href={infoLink}
-                            className='btn-link'
+                            className='btnLink'
                             color='default'
                             type='button'
                             target='_blank'
-                            rel='noopener noreferrer'
-                        >
+                            rel='noopener noreferrer'>
                             Info Link
-                        </a>
+                        </Button>
                     </div>
                 </div>
             </Modal>

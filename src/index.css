@@ -1,5 +1,5 @@
 #root, html, body {
-    height: 100vh;
+    height: 130vh;
 }
 
 body {
@@ -7,12 +7,16 @@ body {
     background-color: #151515;
 }
 
-* {
-    box-sizing: border-box;
-}
 
 html {
     scroll-behavior: smooth;
+}
+/* App Title Card */
+.cardHeader {
+    background: linear-gradient(90deg, rgb(31, 31, 31) 0%, rgb(83, 83, 83) 100%);
+    border-radius: 0.6em;
+    margin: 1em;
+    overflow: hidden;
 }
 
 .appTitle {
@@ -27,13 +31,19 @@ html {
     transition: all ease-in 100ms;
 }
 
+/* Suggestion Card */
 .cards {
     display: flex;
     align-items: flex-start;
     justify-content: center;
 }
 
-.card {
+.cardBook {
+
+    margin-top: 0.2em;
+}
+
+.card1 {
     background: linear-gradient(90deg, rgb(30, 77, 248) 0%, rgba(112,112,250,1) 100%);
     width: 24em;
     border-radius: 0.6em;
@@ -66,7 +76,7 @@ html {
     transition: all ease 200ms;
 }
 
-.card:hover {
+.card1:hover {
     transform: scale(1.03);
     box-shadow: #101010;
 }
@@ -81,7 +91,7 @@ html {
     box-shadow: #101010;
 }
 
-.card h2 {
+.card1 h2 {
     color: #e3e3e3;
     align-content: center;
     alignment: center;
@@ -93,7 +103,7 @@ html {
     transition: all ease-in 100ms;
 }
 
-.card p {
+.card1 p {
     color: #eaeaea;
     font-family: 'Montserrat', sans-serif;
 }
@@ -133,4 +143,130 @@ html {
 
 .card-body {
     padding: 1.2em;
+}
+
+/* Book Card */
+.card-title {
+    overflow: hidden;
+    color: rgba(227, 227, 227, 0.85);
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.btnInfo {
+    background: linear-gradient(90deg, rgb(30, 77, 248) 0%, rgba(112,112,250,1) 100%);
+    height: 1.5rem;
+    border: none;
+    color: #e3e3e3;
+}
+
+.cardMain .card-body {
+    padding: 0;
+}
+
+/* Modal*/
+.modal {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e3e3e3;
+    margin: 20px;
+}
+
+.modal-header {
+    font-size: 1.4rem;
+}
+
+.btnLink {
+    background: linear-gradient(90deg, rgb(248, 55, 30) 0%, rgb(250, 140, 112) 100%);
+    border: none;
+    color: #e3e3e3;
+    text-decoration: none;
+}
+
+/*Search Bar*/
+
+.spinnerSection {
+    margin: 2rem;
+}
+
+.spinner {
+    width: 3rem;
+    height: 3rem;
+    color: #e3e3e3;
+}
+.main-card {
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    overflow: hidden;
+}
+
+.inputGroup {
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBar {
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 2.2rem;
+    border-radius: 1.6em;
+    border: none;
+}
+
+.btnSearch {
+    background: linear-gradient(90deg, rgb(30, 77, 248) 0%, rgba(112,112,250,1) 100%);
+    height: 2.2rem;
+    border: none;
+    border-radius: 1.6em;
+    color: #e3e3e3;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.filterResults {
+    justify-content: center;
+    align-content: center;
+}
+
+.maxResult {
+    margin-top: 1.0rem;
+    justify-content: center;
+    align-content: center;
+}
+
+.labelMax {
+    color: #e3e3e3;
+    align-content: center;
+    alignment: center;
+    line-height: 1.4;
+    font-size: 1.3em;
+    margin-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.maxSearch {
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 2rem;
+    border-radius: 1.6em;
+    border: none;
+}
+
+.indexResults {
+    margin-top: 0.8rem;
+}
+
+.listItems {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem;
 }
