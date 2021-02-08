@@ -30,7 +30,12 @@ Alan platform provides an AI backends for your application to create conversatio
 
 ###### Search By Category
 
+Book can be searched by category like: Art & Music, Biographies, Business, Comics, Computer & Tech etc..
+
 ###### Search By Terms
+
+Terms like Android, Flutter, Javascript, Novel Interaction, Artificial Intelligence etc... can also be used
+to search for books
 
 ###### Command Examples
 

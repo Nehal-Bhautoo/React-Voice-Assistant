@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
     InputGroup,
     Input,
-    InputGroupAddon,
     Button,
     FormGroup,
     Label,
