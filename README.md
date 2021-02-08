@@ -16,5 +16,5 @@ Alan platform provides an AI backends for your application to create conversatio
 
 ## Screenshots
 
-![Img](../Screenshots/1.png)
+![Img](Screenshots/1.png)
 
