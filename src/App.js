@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import alanBtn from "@alan-ai/alan-sdk-web";
+import axios from 'axios';
+import BookCard from './BookCard.jsx';
 
 const App = () => {
     useEffect(() => {
@@ -17,13 +19,14 @@ const App = () => {
     return(
       <div>
           <h1 className="appTitle">Voice Assistant Application</h1>
+          <h2 className="appTitle">This App allow you to search a Books and generate references based on the required book</h2>
           <div className='cards'>
             <Card
-                title='Category'
+                title='Search by Category'
                 text=''/>
 
               <Card2
-                  title='Terms'
+                  title='Search by Terms'
                   text=''/>
 
               <Card3
