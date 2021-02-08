@@ -19,7 +19,7 @@ const App = () => {
     return(
       <div>
           <h1 className="appTitle">Voice Assistant Application</h1>
-          <h2 className="appTitle">This App allow you to search a Books and generate references based on the required book</h2>
+          <h2 className="appTitle">This App allow you to search a Books and generate Harvard references</h2>
           <div className='cards'>
             <Card
                 title='Search by Category'

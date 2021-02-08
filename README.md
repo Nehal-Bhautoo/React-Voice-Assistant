@@ -44,3 +44,5 @@ Alan platform provides an AI backends for your application to create conversatio
 
 ![Img](Screenshots/1.png)
 
+![Img](Screenshots/2.png)
+
