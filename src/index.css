@@ -94,7 +94,8 @@ html {
 }
 
 .card p {
-    color: #777;
+    color: #eaeaea;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .card2 h2 {
@@ -110,7 +111,8 @@ html {
 }
 
 .card2 p {
-    color: #777;
+    color: #eaeaea;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .card3 h2 {

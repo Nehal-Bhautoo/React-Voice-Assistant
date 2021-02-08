@@ -23,11 +23,13 @@ const App = () => {
           <div className='cards'>
             <Card
                 title='Search by Category'
-                text=''/>
+                text='Lists: Art & Music, Biographies, Business,
+                Comics, Computer & Tech etc..'/>
 
               <Card2
                   title='Search by Terms'
-                  text=''/>
+                  text='Lists: Android, Flutter, Javascript, Novel Interaction,
+                  Artificial Intelligence etc...'/>
 
               <Card3
                   title='Commands Example'
