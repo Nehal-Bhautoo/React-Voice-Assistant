@@ -1,25 +1,77 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import alanBtn from "@alan-ai/alan-sdk-web";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    useEffect(() => {
+        alanBtn({
+            key: 'b5f85ba1d159fdc5657da8f2d51b76a52e956eca572e1d8b807a3e2338fdd0dc/stage',
+            onCommand: (commandData) => {
+                if (commandData === 'testCommand') {
+                    alert('Command Executed');
+                }
+            },
+        });
+
+    }, [])
+
+    return(
+      <div>
+          <h1 className="appTitle">Voice Assistant Application</h1>
+          <div className='cards'>
+            <Card
+                title='Category'
+                text=''/>
+
+              <Card2
+                  title='Terms'
+                  text=''/>
+
+              <Card3
+                  title='Commands Example'
+                  text=''/>
+
+          </div>
+      </div>
+    );
+}
+
+class Card extends  React.Component {
+    render() {
+        return (
+            <div className="card">
+                <div className="card-body">
+                    <h2>{this.props.title}</h2>
+                    <p>{this.props.text}</p>
+                </div>
+            </div>
+        )
+    }
+}
+
+class Card2 extends  React.Component {
+    render() {
+        return (
+            <div className="card2">
+                <div className="card-body">
+                    <h2>{this.props.title}</h2>
+                    <p>{this.props.text}</p>
+                </div>
+            </div>
+        )
+    }
+}
+
+class Card3 extends  React.Component {
+    render() {
+        return (
+            <div className="card3">
+                <div className="card-body">
+                    <h2>{this.props.title}</h2>
+                    <p>{this.props.text}</p>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default App;
