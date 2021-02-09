@@ -14,7 +14,7 @@ import BookCard from './BookCard.jsx';
 
 function AppSearch() {
     // States
-    const [maxResults, setMaxResults] = useState(10);
+    const [maxResults, setMaxResults] = useState(5);
     const [startIndex, setStartIndex] = useState(1);
     const [query, setQuery] = useState('');
     const [loading, setLoading] = useState(false);
@@ -60,29 +60,31 @@ function AppSearch() {
                         <Button className='btnSearch' onClick={handleSubmit}>
                             <i>Search</i>
                         </Button>
-                        <div className='filterResults'>
-                            <FormGroup className='maxResult'>
-                                <Label className='labelMax' for='maxResults'>Max Results</Label>
-                                <Input
-                                    className='maxSearch'
-                                    type='number'
-                                    id='maxResults'
-                                    placeholder='Max Results'
-                                    value={maxResults}
-                                    onChange={e => setMaxResults(e.target.value)}
-                                />
-                            </FormGroup>
-                            <FormGroup className='indexResults'>
-                                <Label className='labelMax' for='startIndex'>Start Index</Label>
-                                <Input
-                                    className='maxSearch'
-                                    type='number'
-                                    id='startIndex'
-                                    placeholder='Start Index'
-                                    value={startIndex}
-                                    onChange={e => setStartIndex(e.target.value)}
-                                />
-                            </FormGroup>
+                        <div className='container'>
+                            <div className='filterResults col-sm-6'>
+                                <FormGroup className='maxResult row'>
+                                    <Label className='labelMax' for='maxResults'>Max Results</Label>
+                                    <Input
+                                        className='maxSearch'
+                                        type='number'
+                                        id='maxResults'
+                                        placeholder='Max Results'
+                                        value={maxResults}
+                                        onChange={e => setMaxResults(e.target.value)}
+                                    />
+                                </FormGroup>
+                                <FormGroup className='indexResults col'>
+                                    <Label className='labelMax' for='startIndex'>Start Index</Label>
+                                    <Input
+                                        className='indexSearch'
+                                        type='number'
+                                        id='startIndex'
+                                        placeholder='Start Index'
+                                        value={startIndex}
+                                        onChange={e => setStartIndex(e.target.value)}
+                                    />
+                                </FormGroup>
+                            </div>
                         </div>
                     </InputGroup>
                 </div>
@@ -103,7 +105,7 @@ function AppSearch() {
                     thumbnail = item.volumeInfo.imageLinks.thumbnail;
                 }
                 return (
-                    <div className='bookCardSection' key={item.id}>
+                    <div className='bookCardSection row-3' key={item.id}>
                         <BookCard
                             thumbnail={thumbnail}
                             title={item.volumeInfo.title}
@@ -120,7 +122,9 @@ function AppSearch() {
             });
             return (
                 <div className='container'>
-                    <div className='listItems'>{items}</div>
+                    <div className='col-sm-6'>
+                        <div className='listItems'>{items}</div>
+                    </div>
                 </div>
 
             );
