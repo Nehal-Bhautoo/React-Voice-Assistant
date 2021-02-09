@@ -4,7 +4,6 @@ import { Card, CardTitle, CardImg, CardBody, Button, Modal } from 'reactstrap';
 const BookCard = ({
     thumbnail,
     title,
-    bookId,
     pageCount,
     language,
     description,
@@ -41,8 +40,7 @@ const BookCard = ({
                         aria-label='Close'
                         className='close'
                         type='button'
-                        onClick={toggle}
-                    >
+                        onClick={toggle}>
                         <span aria-hidden={true}>X</span>
                     </button>
                 </div>
@@ -71,7 +69,6 @@ const BookCard = ({
                             Preview Link
                         </Button>
                     </div>
-
                     <div className='right-side'>
                         <Button
                             href={infoLink}

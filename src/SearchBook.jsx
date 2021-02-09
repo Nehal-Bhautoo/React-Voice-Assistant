@@ -50,6 +50,9 @@ function AppSearch() {
     const mainHeader = () => {
         return (
             <div className='main-card'>
+                <div className='filter'>
+
+                </div>
                 <div>
                     <InputGroup className='inputGroup'>
                         <Input
@@ -105,11 +108,10 @@ function AppSearch() {
                     thumbnail = item.volumeInfo.imageLinks.thumbnail;
                 }
                 return (
-                    <div className='bookCardSection row-3' key={item.id}>
+                    <div className='col-lg-4 mb-3' key={item.id}>
                         <BookCard
                             thumbnail={thumbnail}
                             title={item.volumeInfo.title}
-                            bookId={item.id}
                             pageCount={item.volumeInfo.pageCount}
                             language={item.volumeInfo.language}
                             authors={item.volumeInfo.authors}
@@ -122,17 +124,14 @@ function AppSearch() {
                 );
             });
             return (
-                <div className='container'>
-                    <div className='col-sm-6'>
-                        <div className='listItems'>{items}</div>
-                    </div>
+                <div className='container mb-5'>
+                    <div className='row listItems'>{items}</div>
                 </div>
-
             );
         }
     };
     return (
-        <div>
+        <div className='w-100 h-100'>
             {mainHeader()}
             {handleCards()}
             <ToastContainer />

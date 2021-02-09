@@ -14,7 +14,6 @@ const App = () => {
         });
 
     }, [])
-
     return(
       <div>
           <div className='headerCard'>
@@ -38,9 +37,6 @@ const App = () => {
           </div>
           <div className='cardBook'>
             <AppSearch/>
-          </div>
-          <div className='footer'>
-              <Footer/>
           </div>
       </div>
     );
