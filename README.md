@@ -49,7 +49,12 @@ to search for books
 
 ## Screenshots
 
+**Before Searching**
+![Img](Screenshots/3.png)
+
+**After Searching**
 ![Img](Screenshots/1.png)
 
+**Toggling More Info Button**
 ![Img](Screenshots/2.png)
 

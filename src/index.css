@@ -187,14 +187,14 @@ html {
 }
 
 /* Modal*/
+
 .modal {
-    width: 50%;
-    padding: 20px;
-    display: flex;
     justify-content: center;
     align-items: center;
+    width: 50%;
     background-color: #e3e3e3;
     margin: 20px;
+    padding-bottom: 5px;
 }
 
 .modal-header {
@@ -213,6 +213,11 @@ html {
     font-weight: 500;
     font-size: 16px;
     white-space: nowrap;
+}
+
+.modal-dialog {
+    padding: 16px;
+    margin-bottom: 10px;
 }
 
 .left-silde {

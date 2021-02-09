@@ -17,7 +17,7 @@ const BookCard = ({
     const toggle = () => setModal(
         !modal,
         //TODO
-        //ADD reference functionality
+        console.log(title, authors)
     );
 
     return(
@@ -64,8 +64,7 @@ const BookCard = ({
                             color='default'
                             type='button'
                             target='_blank'
-                            rel='noopener noreferrer'
-                        >
+                            rel='noopener noreferrer'>
                             Preview Link
                         </Button>
                     </div>
