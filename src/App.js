@@ -39,6 +39,9 @@ const App = () => {
           <div className='cardBook'>
             <AppSearch/>
           </div>
+          <div className='footer'>
+              <Footer/>
+          </div>
       </div>
     );
 }
@@ -91,6 +94,16 @@ class Card3 extends  React.Component {
                     <p>{this.props.text}</p>
                 </div>
             </div>
+        )
+    }
+}
+
+class Footer extends React.Component {
+    render() {
+        return(
+            <footer>
+
+            </footer>
         )
     }
 }

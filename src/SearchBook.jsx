@@ -109,6 +109,7 @@ function AppSearch() {
                         <BookCard
                             thumbnail={thumbnail}
                             title={item.volumeInfo.title}
+                            bookId={item.id}
                             pageCount={item.volumeInfo.pageCount}
                             language={item.volumeInfo.language}
                             authors={item.volumeInfo.authors}

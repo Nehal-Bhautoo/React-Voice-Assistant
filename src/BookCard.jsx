@@ -4,6 +4,7 @@ import { Card, CardTitle, CardImg, CardBody, Button, Modal } from 'reactstrap';
 const BookCard = ({
     thumbnail,
     title,
+    bookId,
     pageCount,
     language,
     description,
@@ -14,18 +15,23 @@ const BookCard = ({
 }) => {
     // set state
     const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
+    const toggle = () => setModal(
+        !modal,
+        //TODO
+        //ADD reference functionality
+    );
 
     return(
         <Card style={{ width: '233px' }} className='cardMain '>
             <CardImg
                 top
-                style={{ width: '80%', height: '230px' }}
+                style={{ width: '100%', height: '230px' }}
                 src={thumbnail}
                 alt={title}
             />
             <CardBody>
                 <CardTitle className='card-title'>{title}</CardTitle>
+                <h6 className='author-title'>{authors}</h6>
                 <Button className='btnInfo' onClick={toggle}>More info</Button>
             </CardBody>
             <Modal isOpen={modal} toggle={toggle}>

@@ -162,6 +162,11 @@ html {
     border-radius: 0.6em;
 }
 
+.cardMain {
+    padding: 8px;
+    background: #212121;
+}
+
 .cardMain .card-body {
     padding: 0;
 }
@@ -169,6 +174,15 @@ html {
 .cardMain:hover {
     transform: scale(1.03);
     box-shadow: #101010;
+}
+
+.author-title {
+    overflow: hidden;
+    color: #e3e3e3;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 12px;
+    white-space: nowrap;
 }
 
 /* Modal*/
@@ -291,3 +305,5 @@ html {
     justify-content: space-between;
     margin: 2rem;
 }
+
+/*Footer*/
