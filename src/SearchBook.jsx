@@ -63,6 +63,13 @@ function AppSearch() {
                         <Button className='btnSearch' onClick={handleSubmit}>
                             <i>Search</i>
                         </Button>
+                        <div className="card4">
+                            <div className="card-body">
+                                <h2>Reference List</h2>
+                                <p>Number of References: </p>
+                                <Button className='referenceBtn'>View More</Button>
+                            </div>
+                        </div>
                         <div className='container'>
                             <div className='filterResults col-sm-6'>
                                 <FormGroup className='maxResult row'>

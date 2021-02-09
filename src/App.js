@@ -32,7 +32,8 @@ const App = () => {
 
               <Card3
                   title='Commands Example'
-                  text=''/>
+                  text='Lists: Android, Flutter, Javascript, Novel Interaction,
+                  Artificial Intelligence etc...'/>
 
           </div>
           <div className='cardBook'>
@@ -90,16 +91,6 @@ class Card3 extends  React.Component {
                     <p>{this.props.text}</p>
                 </div>
             </div>
-        )
-    }
-}
-
-class Footer extends React.Component {
-    render() {
-        return(
-            <footer>
-
-            </footer>
         )
     }
 }
