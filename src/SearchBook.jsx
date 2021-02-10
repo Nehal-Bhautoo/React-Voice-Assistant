@@ -53,7 +53,7 @@ function AppSearch() {
                 <div className='filter'>
 
                 </div>
-                <div>
+                <div className='Card'>
                     <InputGroup className='inputGroup'>
                         <Input
                             className='searchBar'
@@ -115,23 +115,25 @@ function AppSearch() {
                     thumbnail = item.volumeInfo.imageLinks.thumbnail;
                 }
                 return (
-                    <div className='col-lg-4 mb-3' key={item.id}>
-                        <BookCard
-                            thumbnail={thumbnail}
-                            title={item.volumeInfo.title}
-                            pageCount={item.volumeInfo.pageCount}
-                            language={item.volumeInfo.language}
-                            authors={item.volumeInfo.authors}
-                            publisher={item.volumeInfo.publisher}
-                            description={item.volumeInfo.description}
-                            previewLink={item.volumeInfo.previewLink}
-                            infoLink={item.volumeInfo.infoLink}
-                        />
+                    <div className='col-sm-3' key={item.id}>
+                        <div className='row-cols-3'>
+                            <BookCard
+                                thumbnail={thumbnail}
+                                title={item.volumeInfo.title}
+                                pageCount={item.volumeInfo.pageCount}
+                                language={item.volumeInfo.language}
+                                authors={item.volumeInfo.authors}
+                                publisher={item.volumeInfo.publisher}
+                                description={item.volumeInfo.description}
+                                previewLink={item.volumeInfo.previewLink}
+                                infoLink={item.volumeInfo.infoLink}
+                            />
+                        </div>
                     </div>
                 );
             });
             return (
-                <div className='container mb-5'>
+                <div className='container'>
                     <div className='row listItems'>{items}</div>
                 </div>
             );

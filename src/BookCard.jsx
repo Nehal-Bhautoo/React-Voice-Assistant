@@ -17,7 +17,7 @@ const BookCard = ({
     const toggle = () => setModal(
         !modal,
         //TODO
-        console.log(title, authors)
+        console.log(previewLink)
     );
 
     return(
