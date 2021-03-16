@@ -1,6 +1,6 @@
 # React Voice Assistant Application
 
-<a href="https://github.com/Nehal-Bhautoo/React-Native-Voice-Assistant/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/Nehal-Bhautoo/React-Native-Voice-Assistant"></a> <a href="https://github.com/Nehal-Bhautoo/React-Native-Voice-Assistant/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Nehal-Bhautoo/React-Native-Voice-Assistant"></a> <a href="https://github.com/Nehal-Bhautoo/React-Native-Voice-Assistant/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Nehal-Bhautoo/React-Native-Voice-Assistant"></a> <a href="https://github.com/Nehal-Bhautoo/React-Native-Voice-Assistant/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Nehal-Bhautoo/React-Native-Voice-Assistant"></a> <a href="https://github.com/Nehal-Bhautoo/React-Native-Voice-Assistant"><img alt="GitHub license" src="https://img.shields.io/github/license/Nehal-Bhautoo/React-Native-Voice-Assistant"></a>
+<a href="https://github.com/Nehal-Bhautoo/React-Native-Voice-Assistant/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/Nehal-Bhautoo/React-Native-Voice-Assistant"></a> <a href="https://github.com/Nehal-Bhautoo/React-Native-Voice-Assistant/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Nehal-Bhautoo/React-Native-Voice-Assistant"></a> <a href="https://github.com/Nehal-Bhautoo/React-Native-Voice-Assistant/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Nehal-Bhautoo/React-Native-Voice-Assistant"></a> 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -22,11 +22,13 @@ This could take many forms, but is likely to have some important features:
 The APIs in the [Google Books API](https://developers.google.com/books/docs/overview) Family let you bring Google Books features to your site or application. 
 The new Google Books API lets you perform programmatically most of the operations that you can do interactively on the Google Books website.
 
-## Alan AI
+## Web Speech API
 
-Alan platform provides an AI backends for your application to create conversational experiences.
+The [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) makes web apps able to handle voice data. There are two components to this API:
 
-[Alan git repo](https://github.com/alan-ai)
+Speech recognition is accessed via the SpeechRecognition interface, which provides the ability to recognize voice context from an audio input (normally via the device's default speech recognition service) and respond appropriately. Generally you'll use the interface's constructor to create a new SpeechRecognition object, which has a number of event handlers available for detecting when speech is input through the device's microphone. The SpeechGrammar interface represents a container for a particular set of grammar that your app should recognize. Grammar is defined using JSpeech Grammar Format (JSGF.).
+
+Speech synthesis is accessed via the SpeechSynthesis interface, a text-to-speech component that allows programs to read out their text content (normally via the device's default speech synthesiser.) Different voice types are represented by SpeechSynthesisVoice objects, and different parts of text that you want to be spoken are represented by SpeechSynthesisUtterance objects. You can get these spoken by passing them to the SpeechSynthesis.speak() method.
 
 ### Commands List
 
