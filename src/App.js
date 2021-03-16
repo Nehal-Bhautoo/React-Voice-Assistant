@@ -1,21 +1,10 @@
-import React, { useEffect } from 'react';
-import alanBtn from "@alan-ai/alan-sdk-web";
+import React from 'react';
 import AppSearch from "./SearchBook";
 
-const App = () => {
-    useEffect(() => {
-        alanBtn({
-            key: 'b5f85ba1d159fdc5657da8f2d51b76a52e956eca572e1d8b807a3e2338fdd0dc/stage',
-            onCommand: (commandData) => {
-                if (commandData === 'testCommand') {
-                    alert('Command Executed');
-                }
-            },
-        });
 
-    }, [])
+const App = () => {
     return(
-      <div>
+        <div>
           <div className='headerCard'>
               <HeaderCard/>
           </div>

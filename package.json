@@ -14,6 +14,8 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0",
+    "react-native-floating-action": "^1.21.0",
     "react-scripts": "4.0.2",
     "react-toastify": "^7.0.3",
     "reactstrap": "^8.9.0",
@@ -43,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.3"
   }
 }
