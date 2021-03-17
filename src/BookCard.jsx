@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardTitle, CardImg, CardBody, Button, Modal } from 'reactstrap';
 
 const BookCard = ({
+    bookNumber,
     thumbnail,
     title,
     pageCount,
@@ -20,6 +21,10 @@ const BookCard = ({
         console.log(previewLink)
     );
 
+    function reference() {
+        console.log(bookNumber);
+    }
+
     return(
         <Card style={{ width: '233px' }} className='cardMain '>
             <CardImg
@@ -31,7 +36,9 @@ const BookCard = ({
             <CardBody>
                 <CardTitle className='card-title'>{title}</CardTitle>
                 <h6 className='author-title'>{authors}</h6>
+                <h6 className='book-number'>{bookNumber}</h6>
                 <Button className='btnInfo' onClick={toggle}>More info</Button>
+                <Button className='btnReference' onClick={reference}>Reference</Button>
             </CardBody>
             <Modal isOpen={modal} toggle={toggle}>
                 <div className='modal-header d-flex justify-content-center'>
@@ -57,7 +64,7 @@ const BookCard = ({
                     <div className='mt-3'>{description}</div>
                 </div>
                 <div className='modal-footer'>
-                    <div className='left-silde'>
+                    <div className='left-side'>
                         <Button
                             href={previewLink}
                             className='btnLink'

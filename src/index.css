@@ -236,6 +236,15 @@ html {
     white-space: nowrap;
 }
 
+.book-number {
+    overflow: hidden;
+    color: #e3e3e3;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
 /* Modal*/
 
 .modal {
@@ -344,7 +353,23 @@ html {
 .btnSearch:hover {
     transform: scale(1.03);
     box-shadow: #101010;
-    background: linear-gradient(90deg, rgb(76, 76, 76) 0%, rgb(172, 172, 172) 100%);
+    background: linear-gradient(90deg, rgb(250, 47, 47) 0%, rgb(246, 98, 98) 100%);
+}
+
+.btnReference {
+    background: linear-gradient(90deg, rgb(172, 30, 248) 0%, rgb(186, 112, 250) 100%);
+    height: 24px;
+    border: none;
+    border-radius: 0.6em;
+    color: #e3e3e3;
+    width: 105px;
+    margin-left: 15px;
+}
+
+.btnReference:hover {
+    transform: scale(1.03);
+    box-shadow: #101010;
+    background: linear-gradient(90deg, rgb(250, 47, 47) 0%, rgb(246, 98, 98) 100%);
 }
 
 .filterResults {

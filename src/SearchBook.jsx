@@ -31,7 +31,7 @@ function AppSearch() {
                 ).then(res => {
                 if (startIndex >= res.data.totalItems || startIndex < 1) {
                     toast.error(
-                        `max reults must be between 1 and ${res.data.totalItems}`
+                        `max results must be between 1 and ${res.data.totalItems}`
                     );
                 } else {
                     if (res.data.items.length > 0) {
@@ -118,6 +118,7 @@ function AppSearch() {
                     <div className='col-sm-3' key={item.id}>
                         <div className='row-cols-3'>
                             <BookCard
+                                bookNumber={i}
                                 thumbnail={thumbnail}
                                 title={item.volumeInfo.title}
                                 pageCount={item.volumeInfo.pageCount}
