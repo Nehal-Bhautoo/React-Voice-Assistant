@@ -11,7 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import axios from 'axios';
 import BookCard from './BookCard.jsx';
-import AddIcon from "@material-ui/icons/Add";
+import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 import Fab from "@material-ui/core/Fab";
 
 const styles = {
@@ -158,7 +158,7 @@ function AppSearch() {
             {handleCards()}
             <ToastContainer />
             <Fab style={styles.fab} color='primary' aria-label='add'>
-                <AddIcon/>
+                <SettingsVoiceIcon/>
             </Fab>
         </div>
     );
