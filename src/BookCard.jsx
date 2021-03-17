@@ -24,7 +24,6 @@ const BookCard = ({
     function reference() {
         console.log(bookNumber);
     }
-
     return(
         <Card style={{ width: '233px' }} className='cardMain '>
             <CardImg
@@ -38,7 +37,7 @@ const BookCard = ({
                 <h6 className='author-title'>{authors}</h6>
                 <h6 className='book-number'>{bookNumber}</h6>
                 <Button className='btnInfo' onClick={toggle}>More info</Button>
-                <Button className='btnReference' onClick={reference}>Reference</Button>
+                <Button className='btnReference' id={bookNumber} onClick={reference}>Reference</Button>
             </CardBody>
             <Modal isOpen={modal} toggle={toggle}>
                 <div className='modal-header d-flex justify-content-center'>

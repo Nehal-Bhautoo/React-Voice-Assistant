@@ -1,7 +1,6 @@
 import React from 'react';
 import AppSearch from "./SearchBook";
 
-
 const App = () => {
     return(
         <div>
