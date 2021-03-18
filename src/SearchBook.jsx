@@ -23,7 +23,6 @@ const styles = {
         right: 20,
     }
 }
-
 function AppSearch() {
     // States
     const [maxResults, setMaxResults] = useState(5);
@@ -66,13 +65,14 @@ function AppSearch() {
 
                 </div>
                 <div className='Card'>
-                    <InputGroup className='inputGroup'>
+                    <InputGroup className='inputGroup' id="search-form">
                         <Input
                             className='searchBar'
+                            id="search-form-input"
                             placeholder='Book Search'
                             value={query}
                             onChange={e => setQuery(e.target.value)}/>
-                        <Button className='btnSearch' onClick={handleSubmit}>
+                        <Button className='btnSearch' onClick={handleSubmit} id="searchBtn">
                             <i>Search</i>
                         </Button>
                         <div className="card4">
@@ -157,8 +157,8 @@ function AppSearch() {
             {mainHeader()}
             {handleCards()}
             <ToastContainer />
-            <Fab style={styles.fab} color='primary' aria-label='add'>
-                <SettingsVoiceIcon/>
+            <Fab style={styles.fab} color='primary' aria-label='add' id="micBtn">
+                <SettingsVoiceIcon id="micIcon"/>
             </Fab>
         </div>
     );
