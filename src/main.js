@@ -3,7 +3,6 @@ const searchFormInput = document.querySelector("#search-form-input");
 const searchBtn = document.querySelector("#searchBtn");
 const micBtn = document.querySelector("#micBtn");
 const micIcon = document.querySelector("#micIcon");
-
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 if(SpeechRecognition) {
