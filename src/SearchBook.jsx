@@ -172,9 +172,9 @@ function AppSearch() {
 function StartSpeech() {
     const searchFormInput = document.querySelector('#search-form-input');
     if(SpeechRecognition) {
-        console.log("Speech Recognition on");
+        toast.success("Speech Recognition on");
     } else {
-        console.log("Speech Recognition off");
+        toast.error("Speech Recognition off");
     } recognition.start();
 }
 export default AppSearch;
