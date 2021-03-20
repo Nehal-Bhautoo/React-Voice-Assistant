@@ -27,14 +27,6 @@ const styles = {
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
-function StartSpeech() {
-    if(SpeechRecognition) {
-        console.log("Speech Recognition on");
-    } else {
-        console.log("Speech Recognition off");
-    } recognition.start();
-}
-
 function AppSearch() {
     // States
     const [maxResults, setMaxResults] = useState(5);
@@ -175,5 +167,14 @@ function AppSearch() {
         </div>
 
     );
+}
+
+function StartSpeech() {
+    const searchFormInput = document.querySelector('#search-form-input');
+    if(SpeechRecognition) {
+        console.log("Speech Recognition on");
+    } else {
+        console.log("Speech Recognition off");
+    } recognition.start();
 }
 export default AppSearch;
