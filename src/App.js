@@ -1,6 +1,5 @@
 import React from 'react';
 import AppSearch from "./SearchBook";
-import SpeechRecon from "./main";
 
 const App = () => {
     return(
@@ -31,6 +30,7 @@ const App = () => {
       </div>
     );
 }
+
 
 class HeaderCard extends React.Component {
     render() {
@@ -85,3 +85,4 @@ class Card3 extends  React.Component {
 }
 
 export default App;
+

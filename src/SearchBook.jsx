@@ -23,6 +23,18 @@ const styles = {
         right: 20,
     }
 }
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+
+function StartSpeech() {
+    if(SpeechRecognition) {
+        console.log("Speech Recognition on");
+    } else {
+        console.log("Speech Recognition off");
+    } recognition.start();
+}
+
 function AppSearch() {
     // States
     const [maxResults, setMaxResults] = useState(5);
@@ -157,11 +169,11 @@ function AppSearch() {
             {mainHeader()}
             {handleCards()}
             <ToastContainer />
-            <Fab style={styles.fab} color='primary' aria-label='add' id="micBtn">
-                <SettingsVoiceIcon id="micIcon"/>
+            <Fab style={styles.fab} color='primary' aria-label='add' id="micBtn" onClick={StartSpeech()}>
+                <SettingsVoiceIcon id="micIcon" className="microphone"/>
             </Fab>
         </div>
+
     );
 }
-
 export default AppSearch;
