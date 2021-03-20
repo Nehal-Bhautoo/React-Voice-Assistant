@@ -25,7 +25,6 @@ const styles = {
 }
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
 
 function AppSearch() {
     // States
@@ -161,8 +160,8 @@ function AppSearch() {
             {mainHeader()}
             {handleCards()}
             <ToastContainer />
-            <Fab style={styles.fab} color='primary' aria-label='add' id="micBtn" onClick={StartSpeech()}>
-                <SettingsVoiceIcon id="micIcon" className="microphone"/>
+            <Fab style={styles.fab} onClick={StartSpeech} color='primary' aria-label='add' id="micBtn" >
+                <SettingsVoiceIcon id="micIcon" className="microphone" />
             </Fab>
         </div>
 
@@ -170,11 +169,40 @@ function AppSearch() {
 }
 
 function StartSpeech() {
+    const recognition = new SpeechRecognition();
+    recognition.start();
+    //recognition.continuous = true;
     const searchFormInput = document.querySelector('#search-form-input');
     if(SpeechRecognition) {
         toast.success("Speech Recognition on");
     } else {
         toast.error("Speech Recognition off");
-    } recognition.start();
+    }
+    recognition.addEventListener("result", resultOfSpeechRecognition);
+
+    function resultOfSpeechRecognition(event) {
+        const current = event.resultIndex;
+        const transcript = event.results[current][0].transcript;
+
+        if(transcript.toLowerCase().trim()==="stop recording") {
+            recognition.stop();
+        } else if(!searchFormInput.value) {
+            searchFormInput.value = transcript;
+            console.log(transcript);
+        } else {
+            if(transcript.toLowerCase().trim()==="go") {
+                document.getElementById('#searchBtn').click();
+                console.log(transcript);
+            } else if(transcript.toLowerCase().trim()==="reset") {
+                searchFormInput.value = "";
+                console.log(transcript);
+            } else {
+                searchFormInput.value = transcript;
+                console.log(transcript);
+            }
+        }
+    }
 }
+
+
 export default AppSearch;
