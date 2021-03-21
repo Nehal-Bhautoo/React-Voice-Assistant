@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import axios from 'axios';
 import BookCard from './BookCard.jsx';
 import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
+import MicOff from '@material-ui/icons/MicOff';
 import Fab from "@material-ui/core/Fab";
 
 const styles = {
@@ -20,6 +21,13 @@ const styles = {
         height: 60,
         position: "fixed",
         bottom: 20,
+        right: 20,
+    },
+    fab2: {
+        width: 60,
+        height: 60,
+        position: "fixed",
+        bottom: 100,
         right: 20,
     }
 }
@@ -163,22 +171,35 @@ function AppSearch() {
             <Fab style={styles.fab} onClick={StartSpeech} color='primary' aria-label='add' id="micBtn" >
                 <SettingsVoiceIcon id="micIcon" className="microphone" />
             </Fab>
+            <Fab style={styles.fab2} color="secondary" aria-label="end" id="muteBtn">
+                <MicOff id="micOffIcon" className="microphoneOff"/>
+            </Fab>
         </div>
-
     );
 }
 
 function StartSpeech() {
     const recognition = new SpeechRecognition();
     recognition.start();
-    //recognition.continuous = true;
     const searchFormInput = document.querySelector('#search-form-input');
+    const muteBtn = document.querySelector("#muteBtn");
     if(SpeechRecognition) {
         toast.success("Speech Recognition on");
+        recognition.addEventListener("result", resultOfSpeechRecognition);
     } else {
         toast.error("Speech Recognition off");
     }
-    recognition.addEventListener("result", resultOfSpeechRecognition);
+
+    muteBtn.addEventListener("click", EndSpeech);
+    function EndSpeech() {
+        if(SpeechRecognition === true) {
+            recognition.stop();
+            toast.error("Speech Recognition off");
+        } else {
+            return toast.error("Speech Recognition Already off");
+        }
+
+    }
 
     function resultOfSpeechRecognition(event) {
         const current = event.resultIndex;
