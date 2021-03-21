@@ -180,9 +180,10 @@ function AppSearch() {
 
 function StartSpeech() {
     const recognition = new SpeechRecognition();
-    recognition.start();
     const searchFormInput = document.querySelector('#search-form-input');
     const muteBtn = document.querySelector("#muteBtn");
+    const searchBtn = document.querySelector('#searchBtn');
+    recognition.start();
     if(SpeechRecognition) {
         toast.success("Speech Recognition on");
         recognition.addEventListener("result", resultOfSpeechRecognition);
@@ -198,13 +199,11 @@ function StartSpeech() {
         } else {
             return toast.error("Speech Recognition Already off");
         }
-
     }
 
     function resultOfSpeechRecognition(event) {
         const current = event.resultIndex;
         const transcript = event.results[current][0].transcript;
-
         if(transcript.toLowerCase().trim()==="stop recording") {
             recognition.stop();
         } else if(!searchFormInput.value) {
@@ -212,7 +211,7 @@ function StartSpeech() {
             console.log(transcript);
         } else {
             if(transcript.toLowerCase().trim()==="go") {
-                document.getElementById('#searchBtn').click();
+                searchBtn.click();
                 console.log(transcript);
             } else if(transcript.toLowerCase().trim()==="reset") {
                 searchFormInput.value = "";
