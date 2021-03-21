@@ -14,6 +14,7 @@ import BookCard from './BookCard.jsx';
 import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 import MicOff from '@material-ui/icons/MicOff';
 import Fab from "@material-ui/core/Fab";
+import {forEach} from "react-bootstrap/ElementChildren";
 
 const styles = {
     fab: {
@@ -95,7 +96,7 @@ function AppSearch() {
                         </div>
                         <div className='container'>
                             <div className='filterResults col-sm-6'>
-                                <FormGroup className='maxResult row'>
+                                <FormGroup className='maxResult row' hidden={true}>
                                     <Label className='labelMax' for='maxResults'>Max Results</Label>
                                     <Input
                                         className='maxSearch'
@@ -183,6 +184,11 @@ function StartSpeech() {
     const searchFormInput = document.querySelector('#search-form-input');
     const muteBtn = document.querySelector("#muteBtn");
     const searchBtn = document.querySelector('#searchBtn');
+    let i;
+    for(i = 0; i < 5; i++) {
+        const bookCardBodyBtn = document.getElementById(i);
+        console.log(bookCardBodyBtn);
+    }
     recognition.start();
     if(SpeechRecognition) {
         toast.success("Speech Recognition on");
@@ -200,7 +206,6 @@ function StartSpeech() {
             return toast.error("Speech Recognition Already off");
         }
     }
-
     function resultOfSpeechRecognition(event) {
         const current = event.resultIndex;
         const transcript = event.results[current][0].transcript;
@@ -223,6 +228,5 @@ function StartSpeech() {
         }
     }
 }
-
 
 export default AppSearch;

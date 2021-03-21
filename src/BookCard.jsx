@@ -22,7 +22,17 @@ const BookCard = ({
     );
 
     function reference() {
-        console.log(bookNumber);
+        let bookNum = bookNumber;
+        let thumb = thumbnail;
+        let bookTitle = title;
+        let bookPageCount = pageCount;
+        let bookLan = language;
+        let bookDes = description;
+        let bookAuthor = authors;
+        let bookPublisher = publisher;
+
+        //TODO add reference form
+
     }
     return(
         <Card style={{ width: '233px' }} className='cardMain '>
@@ -32,7 +42,7 @@ const BookCard = ({
                 src={thumbnail}
                 alt={title}
             />
-            <CardBody>
+            <CardBody className="book-card-body">
                 <CardTitle className='card-title'>{title}</CardTitle>
                 <h6 className='author-title'>{authors}</h6>
                 <h6 className='book-number'>{bookNumber}</h6>
