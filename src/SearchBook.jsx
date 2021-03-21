@@ -184,6 +184,8 @@ function StartSpeech() {
     const searchFormInput = document.querySelector('#search-form-input');
     const muteBtn = document.querySelector("#muteBtn");
     const searchBtn = document.querySelector('#searchBtn');
+
+    // look for id
     let i;
     for(i = 0; i < 5; i++) {
         const bookCardBodyBtn = document.getElementById(i);

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Card, CardTitle, CardImg, CardBody, Button, Modal } from 'reactstrap';
+import {Card, CardTitle, CardImg, CardBody, Button, Modal, FormGroup, Label, Input} from 'reactstrap';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const BookCard = ({
     bookNumber,
@@ -32,7 +34,22 @@ const BookCard = ({
         let bookPublisher = publisher;
 
         //TODO add reference form
-
+        return (
+            <Popup position="center center">
+                <div>
+                    <FormGroup className='maxResult row' hidden={true}>
+                        <Label className='labelMax' for='maxResults'>Max Results</Label>
+                        <Input
+                            className='res'
+                            type='text'
+                            id='max'
+                            placeholder='Title'
+                            value={bookTitle}
+                        />
+                    </FormGroup>
+                </div>
+            </Popup>
+        )
     }
     return(
         <Card style={{ width: '233px' }} className='cardMain '>
