@@ -1,25 +1,13 @@
 import React from 'react';
 import AppSearch from "./SearchBook";
-import {AppBar, Button, IconButton, Toolbar, Typography} from "@material-ui/core";
-import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
-
-const styles = {
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: 2,
-    },
-    title: {
-        flexGrow: 1,
-    },
-};
+import './components/popup.css';
+import PersistentDrawerRight from "./components/Drawer";
 
 const App = () => {
     return(
         <div>
           <div className='headerCard'>
-              <HeaderCard/>
+              <PersistentDrawerRight/>
           </div>
           <div className='cards'>
             <Card
@@ -43,27 +31,6 @@ const App = () => {
           </div>
       </div>
     );
-}
-
-
-class HeaderCard extends React.Component {
-    render() {
-        return (
-            <div className="root" style={styles.root}>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton edge='start' style={styles.menuButton} color="inherit" aria-label="menu">
-                            <RecordVoiceOverIcon/>
-                        </IconButton>
-                        <Typography variant="h6" style={styles.title}>
-                            Voice Assistant Application
-                        </Typography>
-                        <Button color="inherit">Reference List</Button>
-                    </Toolbar>
-                </AppBar>
-            </div>
-        );
-    }
 }
 
 class Card extends React.Component {

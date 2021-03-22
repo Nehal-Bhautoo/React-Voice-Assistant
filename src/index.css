@@ -1,5 +1,6 @@
 #root, html, body {
     height: 130vh;
+    background-color: #292929;
 }
 
 body {
@@ -33,13 +34,15 @@ html {
 
 /* Suggestion Card */
 .cards {
+    margin-top: 64px;
+    background-color: #292929;
     display: flex;
     align-items: flex-start;
     justify-content: center;
 }
 
 .cardBook {
-    margin-top: 0.2em;
+    background-color: #292929;
 }
 
 .card1 {

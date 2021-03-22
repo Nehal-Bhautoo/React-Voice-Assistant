@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import "./components/referenceform.css";
-import {
-    InputGroup,
-    Input,
-    Button,
-    FormGroup,
-    Label,
-    Spinner
-} from 'reactstrap';
-import { ToastContainer, toast } from 'react-toastify';
+import {Button, FormGroup, Input, InputGroup, Label, Spinner} from 'reactstrap';
+import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import axios from 'axios';
 import BookCard from './BookCard.jsx';
@@ -34,7 +27,8 @@ const styles = {
 }
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
+const recognition = new SpeechRecognition();
+recognition.continuous = true;
 function AppSearch() {
     // States
     const [maxResults, setMaxResults] = useState(5);
@@ -82,13 +76,14 @@ function AppSearch() {
                             id="search-form-input"
                             placeholder='Book Search'
                             value={query}
-                            onChange={e => setQuery(e.target.value)}/>
+                            onChange={e => setQuery(e.target.value)}
+                            />
                         <Button className='btnSearch' onClick={handleSubmit} id="searchBtn">
                             <i>Search</i>
                         </Button>
                         <div className='container'>
-                            <div className='filterResults col-sm-6'>
-                                <FormGroup className='maxResult row' hidden={true}>
+                            <div className='filterResults col-sm-6' hidden={true}>
+                                <FormGroup className='maxResult row'>
                                     <Label className='labelMax' for='maxResults'>Max Results</Label>
                                     <Input
                                         className='maxSearch'
@@ -173,23 +168,14 @@ function AppSearch() {
 }
 
 function StartSpeech() {
-    const recognition = new SpeechRecognition();
     const searchFormInput = document.querySelector('#search-form-input');
     const muteBtn = document.querySelector("#muteBtn");
-
-    // look for id
-    let i;
-    for(i = 0; i < 5; i++) {
-        //const bookCardBodyBtn = document.getElementById(i);
-        //console.log(bookCardBodyBtn);
-    }
-
-    recognition.start();
-    if(SpeechRecognition) {
+    if(SpeechRecognition === false) {
+        recognition.start();
         toast.success("Speech Recognition on");
         recognition.addEventListener("result", resultOfSpeechRecognition);
     } else {
-        toast.error("Speech Recognition off");
+        toast.success("Speech Recognition On");
     }
     muteBtn.addEventListener("click", EndSpeech);
     function EndSpeech() {
@@ -201,45 +187,56 @@ function StartSpeech() {
         }
     }
     function resultOfSpeechRecognition(event) {
-        const current = event.resultIndex;
-        const transcript = event.results[current][0].transcript;
-        let confidence = event.results[current][0].confidence;
+        const transcript = event.results[0][0].transcript;
         if(transcript.toLowerCase().trim()==="stop recording") {
             recognition.stop();
         } else if(!searchFormInput.value) {
             searchFormInput.value = transcript;
             console.log(transcript);
         } else {
-            if(transcript.toLowerCase().trim()==="go") {
-                console.log(transcript + confidence);
-                searchFormInput.value = transcript;
+            if(transcript.toLowerCase().trim().endsWith("search")) {
+                searchFormInput.focus();
                 const searchBtn = document.querySelector('#searchBtn');
                 searchBtn.click();
-            } else if(transcript.toLowerCase().trim()==="reset") {
+            } else if(transcript.toLowerCase().trim().startsWith("reset")) {
                 searchFormInput.value = "";
-                console.log(transcript + confidence);
+                console.log(transcript);
             } else if(transcript.toLowerCase().trim().startsWith("get")) {
-                let ids = transcript[transcript.length + 6];
+                let ids = transcript[5];
+                let all = transcript[transcript.length - 1];
                 console.log(ids);
                 if(ids === "n") {
                     const bookCardBodyBtn = document.getElementById(0).click();
                     console.log(bookCardBodyBtn);
+                    toast.info("Book Added to list");
                 } else if(ids === "w") {
                     const bookCardBodyBtn = document.getElementById(1).click();
                     console.log(bookCardBodyBtn);
+                    toast.info("Book Added to list");
                 } else if(ids === "h") {
                     const bookCardBodyBtn = document.getElementById(2).click();
                     console.log(bookCardBodyBtn);
+                    toast.info("Book Added to list");
                 } else if(ids === "o") {
                     const bookCardBodyBtn = document.getElementById(3).click();
                     console.log(bookCardBodyBtn);
+                    toast.info("Book Added to list");
+                } else if(all === "l") {
+                    let i;
+                    for(i = 0; i < 5; i++) {
+                        const bookCardBodyBtn = document.getElementById(i).click();
+                        console.log(bookCardBodyBtn);
+                    }
+                    toast.info(" All Book Added to list");
                 } else {
                     toast.error("Book Number not found");
                 }
-                console.log(transcript + confidence);
+                console.log(transcript);
             } else {
+                console.log(transcript);
                 searchFormInput.value = transcript;
-                console.log(transcript + confidence);
+                const searchBtn = document.querySelector('#searchBtn');
+                searchBtn.click();
             }
         }
     }

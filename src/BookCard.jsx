@@ -24,10 +24,9 @@ const BookCard = ({
         //TODO
         console.log(previewLink)
     );
-    const [buttonPopup, setButtonPopup] = useState(false);
+
 
     function reference() {
-        //setButtonPopup(true);
         let bookNum = bookNumber;
         let thumb = thumbnail;
         let bookTitle = title.italics();
@@ -56,9 +55,6 @@ const BookCard = ({
     }
     return(
         <div>
-            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <h3>My popup</h3>
-            </Popup>
             <Card style={{ width: '233px' }} className='cardMain '>
                 <CardImg
                     top
