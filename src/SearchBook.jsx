@@ -14,7 +14,7 @@ import BookCard from './BookCard.jsx';
 import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 import MicOff from '@material-ui/icons/MicOff';
 import Fab from "@material-ui/core/Fab";
-import {forEach} from "react-bootstrap/ElementChildren";
+
 
 const styles = {
     fab: {
@@ -87,13 +87,6 @@ function AppSearch() {
                         <Button className='btnSearch' onClick={handleSubmit} id="searchBtn">
                             <i>Search</i>
                         </Button>
-                        <div className="card4">
-                            <div className="card-body">
-                                <h2>Reference List</h2>
-                                <p>Number of References: </p>
-                                <Button className='referenceBtn'>View More</Button>
-                            </div>
-                        </div>
                         <div className='container'>
                             <div className='filterResults col-sm-6'>
                                 <FormGroup className='maxResult row' hidden={true}>
@@ -183,13 +176,12 @@ function StartSpeech() {
     const recognition = new SpeechRecognition();
     const searchFormInput = document.querySelector('#search-form-input');
     const muteBtn = document.querySelector("#muteBtn");
-    const searchBtn = document.querySelector('#searchBtn');
 
     // look for id
     let i;
     for(i = 0; i < 5; i++) {
         const bookCardBodyBtn = document.getElementById(i);
-        console.log(bookCardBodyBtn);
+        //console.log(bookCardBodyBtn);
     }
     recognition.start();
     if(SpeechRecognition) {
@@ -201,7 +193,7 @@ function StartSpeech() {
 
     muteBtn.addEventListener("click", EndSpeech);
     function EndSpeech() {
-        if(SpeechRecognition === true) {
+        if(SpeechRecognition) {
             recognition.stop();
             toast.error("Speech Recognition off");
         } else {
@@ -218,8 +210,9 @@ function StartSpeech() {
             console.log(transcript);
         } else {
             if(transcript.toLowerCase().trim()==="go") {
-                searchBtn.click();
                 console.log(transcript);
+                const searchBtn = document.querySelector('#searchBtn');
+                searchBtn.click();
             } else if(transcript.toLowerCase().trim()==="reset") {
                 searchFormInput.value = "";
                 console.log(transcript);

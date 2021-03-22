@@ -1,5 +1,19 @@
 import React from 'react';
 import AppSearch from "./SearchBook";
+import {AppBar, Button, IconButton, Toolbar, Typography} from "@material-ui/core";
+import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
+
+const styles = {
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginRight: 2,
+    },
+    title: {
+        flexGrow: 1,
+    },
+};
 
 const App = () => {
     return(
@@ -35,11 +49,18 @@ const App = () => {
 class HeaderCard extends React.Component {
     render() {
         return (
-            <div className='cardHeader'>
-                <div className="card-body">
-                    <h1 className="appTitle">Voice Assistant Application</h1>
-                    <h2 className="appTitle">This App allow you to search a Books and generate Harvard references</h2>
-                </div>
+            <div className="root" style={styles.root}>
+                <AppBar position="static">
+                    <Toolbar>
+                        <IconButton edge='start' style={styles.menuButton} color="inherit" aria-label="menu">
+                            <RecordVoiceOverIcon/>
+                        </IconButton>
+                        <Typography variant="h6" style={styles.title}>
+                            Voice Assistant Application
+                        </Typography>
+                        <Button color="inherit">Reference List</Button>
+                    </Toolbar>
+                </AppBar>
             </div>
         );
     }
