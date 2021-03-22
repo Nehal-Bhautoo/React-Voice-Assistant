@@ -74,7 +74,6 @@ function AppSearch() {
         return (
             <div className='main-card'>
                 <div className='filter'>
-
                 </div>
                 <div className='Card'>
                     <InputGroup className='inputGroup' id="search-form">
@@ -181,9 +180,10 @@ function StartSpeech() {
     // look for id
     let i;
     for(i = 0; i < 5; i++) {
-        const bookCardBodyBtn = document.getElementById(i);
+        //const bookCardBodyBtn = document.getElementById(i);
         //console.log(bookCardBodyBtn);
     }
+
     recognition.start();
     if(SpeechRecognition) {
         toast.success("Speech Recognition on");
@@ -191,7 +191,6 @@ function StartSpeech() {
     } else {
         toast.error("Speech Recognition off");
     }
-
     muteBtn.addEventListener("click", EndSpeech);
     function EndSpeech() {
         if(SpeechRecognition) {
@@ -204,6 +203,7 @@ function StartSpeech() {
     function resultOfSpeechRecognition(event) {
         const current = event.resultIndex;
         const transcript = event.results[current][0].transcript;
+        let confidence = event.results[current][0].confidence;
         if(transcript.toLowerCase().trim()==="stop recording") {
             recognition.stop();
         } else if(!searchFormInput.value) {
@@ -211,15 +211,35 @@ function StartSpeech() {
             console.log(transcript);
         } else {
             if(transcript.toLowerCase().trim()==="go") {
-                console.log(transcript);
+                console.log(transcript + confidence);
+                searchFormInput.value = transcript;
                 const searchBtn = document.querySelector('#searchBtn');
                 searchBtn.click();
             } else if(transcript.toLowerCase().trim()==="reset") {
                 searchFormInput.value = "";
-                console.log(transcript);
+                console.log(transcript + confidence);
+            } else if(transcript.toLowerCase().trim().startsWith("get")) {
+                let ids = transcript[transcript.length + 6];
+                console.log(ids);
+                if(ids === "n") {
+                    const bookCardBodyBtn = document.getElementById(0).click();
+                    console.log(bookCardBodyBtn);
+                } else if(ids === "w") {
+                    const bookCardBodyBtn = document.getElementById(1).click();
+                    console.log(bookCardBodyBtn);
+                } else if(ids === "h") {
+                    const bookCardBodyBtn = document.getElementById(2).click();
+                    console.log(bookCardBodyBtn);
+                } else if(ids === "o") {
+                    const bookCardBodyBtn = document.getElementById(3).click();
+                    console.log(bookCardBodyBtn);
+                } else {
+                    toast.error("Book Number not found");
+                }
+                console.log(transcript + confidence);
             } else {
                 searchFormInput.value = transcript;
-                console.log(transcript);
+                console.log(transcript + confidence);
             }
         }
     }
