@@ -16,6 +16,7 @@
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "react-native-floating-action": "^1.21.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "react-toastify": "^7.0.3",
     "reactjs-popup": "^2.0.4",

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./components/referenceform.css";
 import {
     InputGroup,
     Input,
@@ -14,7 +15,6 @@ import BookCard from './BookCard.jsx';
 import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 import MicOff from '@material-ui/icons/MicOff';
 import Fab from "@material-ui/core/Fab";
-
 
 const styles = {
     fab: {
@@ -154,11 +154,12 @@ function AppSearch() {
                 <div className='container'>
                     <div className='row listItems'>{items}</div>
                 </div>
+
             );
         }
     };
     return (
-        <div className='w-100 h-100'>
+        <div className='w-100 h-150'>
             {mainHeader()}
             {handleCards()}
             <ToastContainer />

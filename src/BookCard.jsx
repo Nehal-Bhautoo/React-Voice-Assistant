@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import {Card, CardTitle, CardImg, CardBody, Button, Modal, FormGroup, Label, Input} from 'reactstrap';
 import Popup from './components/Popup';
+import {toast} from "react-toastify";
 
+let referencesList = [];
 
 const BookCard = ({
     bookNumber,
@@ -28,14 +30,29 @@ const BookCard = ({
         //setButtonPopup(true);
         let bookNum = bookNumber;
         let thumb = thumbnail;
-        let bookTitle = title;
+        let bookTitle = title.italics();
         let bookPageCount = pageCount;
         let bookLan = language;
         let bookDes = description;
         let bookAuthor = authors;
         let bookPublisher = publisher;
-        console.log(title);
+        let date = new Date();
+        let year = date.getFullYear()
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let month = months[date.getMonth()];
+        let day = date.getDate();
+        let accessed = "[Accessed " + day + " " + month + " " + year + " ]";
 
+        referencesList.push(
+            bookAuthor + " " +
+            "(" + "year" + ")" + " " +
+            bookTitle + " " +
+            "edition" + " " +
+            bookPublisher + " " +
+            accessed
+        )
+        toast.info("Added to references list");
+        console.log(referencesList);
     }
     return(
         <div>

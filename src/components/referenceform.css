@@ -1,0 +1,32 @@
+.formContent {
+    position: center;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.root2 {
+    width: 80%;
+    color: #FFFFFF;
+    background-color: rgba(57, 57, 57, 0.2);
+    max-width: 345px;
+}
+
+.card-header {
+    color: #FFFFFF;
+}
+
+.avatar {
+    background-color: red;
+}
+
+.ref-input {
+    background-color: #101010;
+    border: none;
+    color: #FFFFFF;
+    width: 90%;
+    height: 20px;
+}

@@ -79,7 +79,7 @@ class Card extends React.Component {
     }
 }
 
-class Card2 extends  React.Component {
+class Card2 extends React.Component {
     render() {
         return (
             <div className="card2">
@@ -92,7 +92,7 @@ class Card2 extends  React.Component {
     }
 }
 
-class Card3 extends  React.Component {
+class Card3 extends React.Component {
     render() {
         return (
             <div className="card3">
@@ -104,6 +104,7 @@ class Card3 extends  React.Component {
         )
     }
 }
+
 
 export default App;
 
