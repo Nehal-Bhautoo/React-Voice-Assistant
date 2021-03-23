@@ -29,6 +29,9 @@ const styles = {
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 recognition.continuous = true;
+
+let tts = window.speechSynthesis;
+
 function AppSearch() {
     // States
     const [maxResults, setMaxResults] = useState(5);
@@ -68,6 +71,7 @@ function AppSearch() {
         return (
             <div className='main-card'>
                 <div className='filter'>
+
                 </div>
                 <div className='Card'>
                     <InputGroup className='inputGroup' id="search-form">
@@ -81,6 +85,7 @@ function AppSearch() {
                         <Button className='btnSearch' onClick={handleSubmit} id="searchBtn">
                             <i>Search</i>
                         </Button>
+                        {/*Select Voice: <select id='voiceList' hidden={true}></select>*/}
                         <div className='container'>
                             <div className='filterResults col-sm-6' hidden={true}>
                                 <FormGroup className='maxResult row'>
@@ -170,10 +175,10 @@ function AppSearch() {
 function StartSpeech() {
     const searchFormInput = document.querySelector('#search-form-input');
     const muteBtn = document.querySelector("#muteBtn");
+    recognition.start();
+    recognition.addEventListener("result", resultOfSpeechRecognition);
     if(SpeechRecognition === false) {
-        recognition.start();
         toast.success("Speech Recognition on");
-        recognition.addEventListener("result", resultOfSpeechRecognition);
     } else {
         toast.success("Speech Recognition On");
     }
@@ -186,6 +191,10 @@ function StartSpeech() {
             return toast.error("Speech Recognition Already off");
         }
     }
+    let voices = [];
+    voices = tts.getVoices();
+    let selectedVoiceName = "Microsoft David Desktop - English (United States)";
+
     function resultOfSpeechRecognition(event) {
         const transcript = event.results[0][0].transcript;
         if(transcript.toLowerCase().trim()==="stop recording") {
@@ -198,8 +207,22 @@ function StartSpeech() {
                 searchFormInput.focus();
                 const searchBtn = document.querySelector('#searchBtn');
                 searchBtn.click();
+                let toSpeak = new SpeechSynthesisUtterance("Performing Search");
+                voices.forEach((voice) => {
+                    if(voice.name === selectedVoiceName ) {
+                        toSpeak.voice = voice;
+                    }
+                });
+                tts.speak(toSpeak);
             } else if(transcript.toLowerCase().trim().startsWith("reset")) {
                 searchFormInput.value = "";
+                let toSpeak = new SpeechSynthesisUtterance("Resetting Input");
+                voices.forEach((voice) => {
+                    if(voice.name === selectedVoiceName ) {
+                        toSpeak.voice = voice;
+                    }
+                });
+                tts.speak(toSpeak);
                 console.log(transcript);
             } else if(transcript.toLowerCase().trim().startsWith("get")) {
                 let ids = transcript[5];
@@ -208,6 +231,13 @@ function StartSpeech() {
                 if(ids === "n") {
                     const bookCardBodyBtn = document.getElementById(0).click();
                     console.log(bookCardBodyBtn);
+                    let toSpeak = new SpeechSynthesisUtterance("Added first book to list");
+                    voices.forEach((voice) => {
+                        if(voice.name === selectedVoiceName ) {
+                            toSpeak.voice = voice;
+                        }
+                    });
+                    tts.speak(toSpeak);
                     toast.info("Book Added to list");
                 } else if(ids === "w") {
                     const bookCardBodyBtn = document.getElementById(1).click();
@@ -227,14 +257,27 @@ function StartSpeech() {
                         const bookCardBodyBtn = document.getElementById(i).click();
                         console.log(bookCardBodyBtn);
                     }
+                    let toSpeak = new SpeechSynthesisUtterance("Added All book to list");
+                    voices.forEach((voice) => {
+                        if(voice.name === selectedVoiceName ) {
+                            toSpeak.voice = voice;
+                        }
+                    });
+                    tts.speak(toSpeak);
                     toast.info(" All Book Added to list");
                 } else {
                     toast.error("Book Number not found");
                 }
                 console.log(transcript);
-            } else if(transcript.toLowerCase().trim().match("send list")) {
-                const sentViaMailBtn = document.getElementById("sentViaMailBtn");
-                console.log(sentViaMailBtn);
+            } else if(transcript.toLowerCase().trim().match("email")) {
+                document.getElementById("sentViaMailBtn").click();
+                let toSpeak = new SpeechSynthesisUtterance("Sending List to mail");
+                voices.forEach((voice) => {
+                    if(voice.name === selectedVoiceName ) {
+                        toSpeak.voice = voice;
+                    }
+                });
+                tts.speak(toSpeak);
             } else {
                 console.log(transcript);
                 searchFormInput.value = transcript;
