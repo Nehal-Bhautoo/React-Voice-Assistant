@@ -232,6 +232,9 @@ function StartSpeech() {
                     toast.error("Book Number not found");
                 }
                 console.log(transcript);
+            } else if(transcript.toLowerCase().trim().match("send list")) {
+                const sentViaMailBtn = document.getElementById("sentViaMailBtn");
+                console.log(sentViaMailBtn);
             } else {
                 console.log(transcript);
                 searchFormInput.value = transcript;

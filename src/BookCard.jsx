@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import {Card, CardTitle, CardImg, CardBody, Button, Modal, FormGroup, Label, Input} from 'reactstrap';
-import Popup from './components/Popup';
+import {Card, CardTitle, CardImg, CardBody, Button, Modal} from 'reactstrap';
 import {toast} from "react-toastify";
 
 let referencesList = [];
@@ -25,7 +24,6 @@ const BookCard = ({
         console.log(previewLink)
     );
 
-
     function reference() {
         let bookNum = bookNumber;
         let thumb = thumbnail;
@@ -40,8 +38,8 @@ const BookCard = ({
         let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let month = months[date.getMonth()];
         let day = date.getDate();
-        let accessed = "[Accessed " + day + " " + month + " " + year + " ]";
-
+        let accessed = "[Accessed " + day + " " + month + " " + year + "]";
+        const appendList = document.getElementById('appendListArray');
         referencesList.push(
             bookAuthor + " " +
             "(" + "year" + ")" + " " +
@@ -51,7 +49,13 @@ const BookCard = ({
             accessed
         )
         toast.info("Added to references list");
-        console.log(referencesList);
+        let newLi = document.createElement("li");
+        let newContent = document.createTextNode(referencesList);
+        newLi.appendChild(newContent);
+        appendList.appendChild(newLi);
+
+        const sentViaMailBtn = document.getElementById("sentViaMailBtn");
+        sentViaMailBtn.addEventListener("click", sendMail);
     }
     return(
         <div>
@@ -120,6 +124,15 @@ const BookCard = ({
             </Card>
         </div>
     );
+}
+
+function sendMail() {
+    const mailbody = "My List: \n\n" + referencesList;
+    let link = "mailto:nehalb34@gmail.com"
+        + "?cc"
+        + "&subject=" + escape("Reference List")
+        + "&body=" + escape(mailbody);
+    window.location.href = link;
 }
 
 export default BookCard;
